@@ -7,9 +7,15 @@ import { useSelector } from "react-redux";
 
 const EmployerRegistration = () => {
   const [countries, setCountries] = useState([]);
-  const { email } = useSelector((state) => state.auth);
+  const {
+    user: { email },
+  } = useSelector((state) => state.auth);
 
-  const { handleSubmit, register, control } = useForm();
+  const { handleSubmit, register, control } = useForm({
+    defaultValues: {
+      email,
+    },
+  });
   const term = useWatch({ control, name: "term" });
   const navigate = useNavigate();
 
@@ -81,8 +87,8 @@ const EmployerRegistration = () => {
               Email
             </label>
             <input
-              // defaultValue={email}
-              // disabled
+              className="cursor-not-allowed"
+              disabled
               type="email"
               id="email"
               {...register("email")}
