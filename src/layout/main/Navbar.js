@@ -36,7 +36,7 @@ const Navbar = () => {
         {email ? (
           <button
             onClick={handleSignOut}
-            className="border border-black px-2 py-1 rounded-full hover:border-primary hover:text-white hover:bg-primary hover:px-4 transition-all"
+            className="px-2 py-1 rounded-full hover:border-primary hover:text-white hover:bg-primary hover:px-4 transition-all"
           >
             Logout
           </button>
@@ -52,7 +52,10 @@ const Navbar = () => {
         )}
         {email && role && (
           <li>
-            <Link className="hover:text-primary" to="/dashboard">
+            <Link
+              className="border border-black px-2 py-1 rounded-full hover:border-primary hover:text-white hover:bg-primary hover:px-4 transition-all"
+              to="/dashboard"
+            >
               Dashboard
             </Link>
           </li>
